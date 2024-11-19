@@ -8,8 +8,8 @@ class ATM
     ATM();
     void run();
     
-private:
-    void showMenu();
+
+    static void showMenu();
     void handleLogin();
     void handleTransactions();
     Bank bank_;

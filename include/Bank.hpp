@@ -7,7 +7,7 @@ class Bank{
     Bank();
     bool authenticate(const std::string &accountNumber,const std::string &pin);
     double getBalance(const std::string &accountNumber);
-    void deposite(const std::string &accountNumber,double amount);
+    void deposit(const std::string &accountNumber,double amount);
     bool withdraw(const std::string &accountNumber,double amount);
     
 

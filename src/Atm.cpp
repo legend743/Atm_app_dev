@@ -1,34 +1,52 @@
 #include "ATM.hpp"
 #include<iostream>
 
-
+ATM atm;
 ATM::ATM() : bank_(){}
 void ATM::run(){
-    std::cout<<"Welcome to Axis Bank ATM"<<endl;
+    std::cout<<"Welcome to Axis Bank ATM"<<std::endl;
     handleLogin();
-    handleTransactiions();
+    handleTransactiions(atm);
 }
 void ATM::showMenu(){
     std::cout<<"\n1.Check Balance\n2.Deposit\n3.Withdraw\n4.logout\n";
     std::cout<<"Enter Your Choice!!";
 }
-void handleTransactiions(){
+
+void handleLogin(){
+
+
+    std::string accountNumber,pin;
+    std::cout<<"Enter Account Number: ";
+    std::cin>>accountNumber;
+    std::cout<<"Enter Pin: ";
+    std::cin>>pin;
+    if(atm.bank_.authenticate(accountNumber,pin)){
+        atm.loggedInAccount_= accountNumber;
+        std::cout<<"Login Successfull!!";
+    }else{
+        std::cerr<<"Invalid Credentials. Exiting...\n";
+        exit(1);
+    }
+          
+}
+void handleTransactiions(ATM &atm){
     int choice;
 
     do{
-        showMenu();
+        atm.showMenu();
         std::cin>>choice;
         switch(choice){
             case 1:
-            std::cout<<"Balance:"<<bank_.getBalance(loggedInAcccount_)<<"\n";
+            std::cout<<"Balance:"<<atm.bank_.getBalance(atm.loggedInAccount_)<<"\n";
             break;
-        }
+        
         case 2:
     {
         double amount;
-        std::cout<<"Enter the amount to deposit"<<endl;
+        std::cout<<"Enter the amount to deposit"<<std::endl;
         std::cin>>amount;
-        bank_.deposit(loggedInAccount_,amount);
+        atm.bank_.deposit(atm.loggedInAccount_,amount);
         std::cout<<"Amount Deposited succesfully!!!";
         break;
 
@@ -36,7 +54,7 @@ void handleTransactiions(){
     case 3:
     {      double amount;
         std::cout<<"Enter the amount to withdraw!!";
-        if(bank_.withdraw(loggedInAccount_,amount)){
+        if(atm.bank_.withdraw(atm.loggedInAccount_,amount)){
             std::cout<<"Withdrawal successful!!\n";
 
         }
@@ -48,28 +66,16 @@ void handleTransactiions(){
     }
     case 4:
     std::cout<<"loggin out...\n";
-    loggedInAcount_="";
+    atm.loggedInAccount_="";
     return;
     default:
     std::cerr<<"Invalid Choice!!!!\n";
 
 
     }
-    while(true);
+   
 }
-void handleLogin(){
-    std::string accountNumber,pin;
-    std::cout<<"Enter Account Number: ";
-    std::cin>>accountNumber;
-    std::cout<<"Enter Pin: ";
-    std::cin>>pin;
-    if(bank_.authenticate(accountNumber,pin)){
-        loggedInAccount_= accountNumber;
-        std::cout<<"Login Successfull!!";
-    }else{
-        std::cerr<<"Invalid Credentials. Exiting...\n";
-        exit(1);
-    }
-          
+ while(true);
 }
+
 

@@ -5,7 +5,7 @@ Bank::Bank(){
 accounts_.emplace("758100046690",Account("758100046690","0000",1000.0));
 accounts_.emplace("758100046690",Account("758100056690","9999",11000.0));
 }
-bool Bank::authenticate(const std::string &accountNumber,cost std::string &pin){
+bool Bank::authenticate(const std::string &accountNumber,const std::string &pin){
     if(accounts_.find(accountNumber)!=accounts_.end()){
         return accounts_[accountNumber].validatePin(pin);
 
@@ -20,5 +20,5 @@ void Bank::deposit(const std::string &accountNumber,double amount){
     accounts_[accountNumber].deposit(amount);
 }
 bool Bank::withdraw(const std::string &accountNumber,double amount){
-    return accounts_.[accountNumber].withdraw(amount)
+    return accounts_[accountNumber].withdraw(amount);
 }

@@ -6,14 +6,14 @@ ATM::ATM() : bank_(){}
 void ATM::run(){
     std::cout<<"Welcome to Axis Bank ATM"<<std::endl;
     handleLogin();
-    handleTransactiions(atm);
+    handleTransactions(atm);
 }
 void ATM::showMenu(){
     std::cout<<"\n1.Check Balance\n2.Deposit\n3.Withdraw\n4.logout\n";
     std::cout<<"Enter Your Choice!!";
 }
 
-void handleLogin(){
+void ATM::handleLogin(){
 
 
     std::string accountNumber,pin;
@@ -30,7 +30,7 @@ void handleLogin(){
     }
           
 }
-void handleTransactiions(ATM &atm){
+void ATM::handleTransactions(ATM &atm){
     int choice;
 
     do{

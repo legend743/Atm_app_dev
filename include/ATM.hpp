@@ -11,7 +11,7 @@ class ATM
 
     static void showMenu();
     void handleLogin();
-    void handleTransactions();
+    void handleTransactions(ATM &atm);
     Bank bank_;
     std::string loggedInAccount_;
 

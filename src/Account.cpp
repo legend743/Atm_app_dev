@@ -1,6 +1,6 @@
 #include "Account.hpp"
 
-
+Account::Account():accountNumber_(""),pin_(""),balance_(0.0){}
 Account::Account(const std::string &accountNumber,const std::string &pin, double balance):accountNumber_(accountNumber),pin_(pin),balance_(balance){};
 
 

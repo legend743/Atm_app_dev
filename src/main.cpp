@@ -1,5 +1,4 @@
-
-#include"ATM.hpp"
+#include "ATM.hpp"
 
 int main(int argc, char const *argv[])
 {   ATM atm;

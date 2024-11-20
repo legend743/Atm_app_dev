@@ -1,11 +1,14 @@
-# Atm_app_dev
-This is backend code for atm 
-clone the code from here
-navigate to project directory  /Atm_app_dev 
-compile the code by running following command
-g++ src/main.cpp src/ATM.cpp src/Account.cpp src/Bank.cpp -o atm -I include
-then you will get .exe file name atm.exe
+# ATM Application Development
 
-on windows run atm.exe file 
-on linux ./atm
+This is the backend code for the ATM application.
 
+### 1. Clone the Repository
+
+Clone the project from the repository:
+\n navigate to Atm_app_dev
+\n compile the code by running 
+\n g++ src/main.cpp src/ATM.cpp src/Account.cpp src/Bank.cpp -o atm -I include
+\n fow windows 
+\n run atm.exe
+\n for Linux
+\n ./atm
